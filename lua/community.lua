@@ -6,8 +6,8 @@
 return {
   "AstroNvim/astrocommunity",
   { import = "astrocommunity.pack.lua" },
-  { import = "astrocommunity.completion.copilot-cmp" },
   { import = "astrocommunity.code-runner.molten-nvim" },
   { import = "astrocommunity.pack.quarto" },
+  { import = "astrocommunity.completion.copilot-vim-cmp" },
   -- import/override with your plugins folder
 }

@@ -15,6 +15,8 @@ return {
         "debugpy",
         -- install any other package
         "tree-sitter-cli",
+        "typescript-language-server", -- tsserver
+        "eslint-lsp", -- eslint
       },
     },
   },
