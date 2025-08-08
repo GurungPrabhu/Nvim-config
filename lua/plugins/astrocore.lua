@@ -48,6 +48,7 @@ return {
         -- configure global vim variables (vim.g)
         -- NOTE: `mapleader` and `maplocalleader` must be set in the AstroNvim opts or before `lazy.setup`
         -- This can be found in the `lua/lazy_setup.lua` file
+        python3_host_prog = vim.fn.expand "~/.virtualenvs/neovim/bin/python3",
       },
     },
     -- Mappings can be configured through AstroCore as well.
@@ -60,6 +61,16 @@ return {
         -- navigate buffer tabs
         ["]b"] = { function() require("astrocore.buffer").nav(vim.v.count1) end, desc = "Next buffer" },
         ["[b"] = { function() require("astrocore.buffer").nav(-vim.v.count1) end, desc = "Previous buffer" },
+
+        -- Quarto Runner mappings
+        ["<localleader>rc"] = { function() require("quarto.runner").run_cell() end, desc = "Run cell" },
+        ["<localleader>ra"] = { function() require("quarto.runner").run_above() end, desc = "Run cell and above" },
+        ["<localleader>rA"] = { function() require("quarto.runner").run_all() end, desc = "Run all cells" },
+        ["<localleader>rl"] = { function() require("quarto.runner").run_line() end, desc = "Run line" },
+        ["<localleader>RA"] = {
+          function() require("quarto.runner").run_all(true) end,
+          desc = "Run all cells of all languages",
+        },
 
         -- mappings seen under group name "Buffer"
         ["<Leader>bd"] = {
@@ -77,6 +88,9 @@ return {
 
         -- setting a mapping to false will disable it
         -- ["<C-S>"] = false,
+      },
+      v = {
+        ["<localleader>r"] = { function() require("quarto.runner").run_range() end, desc = "Run visual range" },
       },
     },
   },
