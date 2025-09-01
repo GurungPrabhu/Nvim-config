@@ -72,6 +72,9 @@ return {
           desc = "Run all cells of all languages",
         },
 
+        ["<leader>mo"] = { ":noautocmd MoltenEnterOutput<CR>", silent = true, desc = "Run line" },
+        ["<leader>ma"] = { ":MoltenReevaluateAll<CR>", silent = true, desc = "Run all cells" },
+
         -- mappings seen under group name "Buffer"
         ["<Leader>bd"] = {
           function()

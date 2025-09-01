@@ -21,6 +21,8 @@ return {
         enabled = true, -- enable or disable format on save globally
         allow_filetypes = { -- enable format on save for specified filetypes only
           "lua",
+          "ipynb",
+          "python",
         },
         ignore_filetypes = { -- disable format on save for specified filetypes
           -- "python",
@@ -43,6 +45,20 @@ return {
     ---@diagnostic disable: missing-fields
     config = {
       -- clangd = { capabilities = { offsetEncoding = "utf-8" } },
+      pylsp = {
+        settings = {
+          pylsp = {
+            plugins = {
+              pycodestyle = {
+                enabled = false,
+              }, -- disable line length check
+              ruff = {
+                enabled = false,
+              }, -- disable ruff linter
+            },
+          },
+        },
+      },
       lua_ls = {
         settings = {
           Lua = {
